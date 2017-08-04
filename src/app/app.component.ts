@@ -24,7 +24,7 @@ export class AppComponent {
     this.user = this.afAuth.authState
   }
   login() {
-    this.afAuth.auth.signInAnonymously()
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
   }
 
   logout() {
