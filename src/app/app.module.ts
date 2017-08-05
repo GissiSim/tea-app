@@ -11,11 +11,11 @@ import { AngularFireAuthModule } from 'angularfire2/auth'
 
 // Components
 import { AppComponent } from './app.component'
-import { LoginComponent } from './components/pages/login/login.component'
-import { HomeComponent } from './components/pages/home/home.component'
+import { FirebaseItemsComponent } from './components/firebase-items/firebase-items.component'
 
 // Services
 import { AuthService } from './services/auth.service'
+import { UserComponent } from './components/user/user.component'
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyD723zGmg0_uSXkKCY-GWKcvGuBpFLZASg',
@@ -27,12 +27,12 @@ export const firebaseConfig = {
 }
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent }
+  { path: '', component: AppComponent },
+  { path: 'login', component: AppComponent }
 ]
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent],
+  declarations: [AppComponent, FirebaseItemsComponent, UserComponent],
   imports: [
     BrowserModule,
     HttpModule,

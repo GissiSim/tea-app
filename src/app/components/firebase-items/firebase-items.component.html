@@ -1,0 +1,6 @@
+<ul class="items-component">
+  <li *ngFor="let item of items | async ">
+    {{item.message.text}}
+    <img src="{{item.message.userPic}}" />
+  </li>
+</ul>
