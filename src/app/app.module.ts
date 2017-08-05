@@ -19,7 +19,7 @@ import { AuthService } from './services/auth.service'
 import { UserComponent } from './components/user/user.component'
 
 // Material Components
-import { MdToolbarModule } from '@angular/material'
+import { MaterialModule } from '@angular/material'
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyD723zGmg0_uSXkKCY-GWKcvGuBpFLZASg',
@@ -46,7 +46,7 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(routes),
-    MdToolbarModule
+    MaterialModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

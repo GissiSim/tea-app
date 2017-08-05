@@ -1,14 +1,20 @@
-<md-toolbar color="primary"><span>Brightwire Tea App Beta 0.0.1</span></md-toolbar>
-
-<div>Welcome the Angular 4 with Firebase Shell. Now with FIREBASE (still needs work)</div>
-<div class="row columns">
-  <button (click)="login()" *ngIf="!(userContext | async)?.uid">Login with Google</button>
-  <button (click)="logout()" *ngIf="(userContext | async)?.uid">Logout</button>
+<md-toolbar class="tea-header" color="primary">
+  <md-icon class="logo">local_cafe</md-icon> Brightwire Tea App Beta 0.0.1
+  <div class="spacer"></div>
+  <button md-icon-button (click)="login()" *ngIf="!(userContext | async)?.uid"><md-icon>login</md-icon></button>
+  <button md-icon-button (click)="logout()" *ngIf="(userContext | async)?.uid"><md-icon>logout</md-icon></button>
   <div *ngIf="(userContext | async)?.uid">
     <app-user [user]="user"></app-user>
   </div>
-  <div><input type="text" id="message" *ngIf="(userContext | async)?.uid " placeholder="What is it that you do?
-      " (keyup.enter)="Send($event.target.value) " [(ngModel)]="msgVal" /></div>
+</md-toolbar>
+<md-card>
+  <div class="welcome-text">Welcome the Angular 4 with Firebase Skeleton. Now with FIREBASE (still needs work)</div>
+  <div class="center-input">
+    <md-input-container>
+      <input mdInput type="text" id="message" *ngIf="(userContext | async)?.uid " placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value) "
+        [(ngModel)]="msgVal" />
+    </md-input-container>
+  </div>
   <app-firebase-items [items]="items">
   </app-firebase-items>
-</div>
+</md-card>
