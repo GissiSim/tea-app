@@ -1,5 +1,5 @@
 <md-toolbar class="tea-header" color="primary">
-  <md-icon class="logo">local_cafe</md-icon> Brightwire Tea App Beta 0.0.1
+  <md-icon class="logo">local_cafe</md-icon> Brightwire Tea App
   <div class="spacer"></div>
   <button md-mini-fab (click)="login()" title="Login using Google" *ngIf="!(userContext | async)?.uid"><md-icon>account_circle</md-icon></button>
   <div *ngIf="(userContext | async)?.uid">
