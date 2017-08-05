@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { HttpModule } from '@angular/http'
 import { FormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 // New imports to update based on AngularFire2 version 4
 import { AngularFireModule } from 'angularfire2'
@@ -16,6 +17,9 @@ import { FirebaseItemsComponent } from './components/firebase-items/firebase-ite
 // Services
 import { AuthService } from './services/auth.service'
 import { UserComponent } from './components/user/user.component'
+
+// Material Components
+import { MdToolbarModule } from '@angular/material'
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyD723zGmg0_uSXkKCY-GWKcvGuBpFLZASg',
@@ -37,10 +41,12 @@ const routes: Routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MdToolbarModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
