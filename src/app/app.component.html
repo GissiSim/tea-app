@@ -2,10 +2,16 @@
 <div class="row columns">
   <button (click)="login()" *ngIf="!(user | async)?.uid">Login with Google</button>
   <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
-
-  <div><input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)"
-      [(ngModel)]="msgVal" /></div>
-  <div id="details-container">
-    <p *ngFor="let item of items | async">{{item.message}}</p>
+  <div class="user-profile" *ngIf="(user | async)?.uid">
+    <img src="{{user_photoURL}}" class="user-image" />
+    <div class="user-info">
+      <span>{{user_displayName}}</span>
+      <span>{{user_email}}</span>
+    </div>
+  </div>
+  <div><input type="text " id="message " *ngIf="(user | async)?.uid " placeholder="What is it that you do?
+      " (keyup.enter)="Send($event.target.value) " [(ngModel)]="msgVal " /></div>
+  <div id="details-container ">
+    <p *ngFor="let item of items | async ">{{item.message}}</p>
   </div>
 </div>
