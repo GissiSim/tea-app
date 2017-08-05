@@ -8,10 +8,19 @@
     border-radius: 50%;
     margin-right: 20px;
   }
-  .info span {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    display: block;
-    color: white;
+  .info {
+    span {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      display: block;
+      color: white;
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    margin-right: 0;
+    .info {
+      display: none;
+    }
   }
 }
