@@ -44,7 +44,14 @@ export class AppComponent {
     this.authService.logout()
   }
   Send(desc: string) {
-    this.items.push({ message: { text: desc, userPic: this.user.photoURL } })
+    this.items.push({
+      message: {
+        text: desc,
+        name: this.user.displayName,
+        email: this.user.email,
+        userPic: this.user.photoURL
+      }
+    })
 
     this.msgVal = ''
   }
