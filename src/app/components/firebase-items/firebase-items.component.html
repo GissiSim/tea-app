@@ -1,15 +1,15 @@
 <div class="firebase-items">
-  <md-card class="firebase-item" *ngFor="let item of items | async ">
+  <md-card (click)="goToEvent(item)" class="firebase-item" *ngFor="let item of items | async">
     <md-card-header>
       <div md-card-avatar class="avatar">
-        <img src="{{item.message.userPic}}" />
+        <img src="{{item.creatorPic}}" />
       </div>
-      <md-card-title>{{item.message.name}}</md-card-title>
-      <md-card-subtitle>{{item.message.email}}</md-card-subtitle>
+      <md-card-title>{{item.title}}</md-card-title>
+      <md-card-subtitle>{{item.creatorName}}</md-card-subtitle>
     </md-card-header>
     <md-card-content>
       <p>
-        {{item.message.text}}
+        # Joined: {{item.numberJoined}}
       </p>
     </md-card-content>
   </md-card>

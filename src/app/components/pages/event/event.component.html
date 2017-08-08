@@ -1,0 +1,9 @@
+<p (click)="joinEvent()">Join Event</p>
+<p>Event: {{title}}</p>
+<p>Creator: {{creator}}</p>
+<p>Number Joined: {{joinNum}}</p>
+<div>Who Joined:
+  <ul>
+    <li *ngFor="let name of joinedUsers">{{name.name}}</li>
+  </ul>
+</div>

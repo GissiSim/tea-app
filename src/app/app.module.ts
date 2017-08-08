@@ -16,10 +16,13 @@ import { FirebaseItemsComponent } from './components/firebase-items/firebase-ite
 
 // Services
 import { AuthService } from './services/auth.service'
-import { UserComponent } from './components/user/user.component'
 
 // Material Components
 import { MaterialModule } from '@angular/material'
+import { EventComponent } from './components/pages/event/event.component'
+import { HomeComponent } from './components/pages/home/home.component'
+import { HeaderComponent } from './header/header.component'
+import { UserComponent } from './components/user/user.component'
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyD723zGmg0_uSXkKCY-GWKcvGuBpFLZASg',
@@ -30,13 +33,20 @@ export const firebaseConfig = {
   messagingSenderId: '537359846929'
 }
 
-const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'login', component: AppComponent }
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'event/:id', component: EventComponent }
 ]
 
 @NgModule({
-  declarations: [AppComponent, FirebaseItemsComponent, UserComponent],
+  declarations: [
+    AppComponent,
+    FirebaseItemsComponent,
+    UserComponent,
+    EventComponent,
+    HomeComponent,
+    HeaderComponent
+  ],
   imports: [
     BrowserModule,
     HttpModule,

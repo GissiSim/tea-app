@@ -1,0 +1,10 @@
+<div class="welcome-text">Welcome the Angular 4 with Firebase Skeleton. Now with FIREBASE (still needs work)</div>
+
+<div class="center-input">
+  <md-input-container *ngIf="(userContext | async)?.uid ">
+    <input mdInput type="text" id="message" placeholder="What is your new event called?" (keyup.enter)="Send($event.target.value) "
+      [(ngModel)]="eventTitle" />
+  </md-input-container>
+</div>
+<app-firebase-items [items]="items">
+</app-firebase-items>

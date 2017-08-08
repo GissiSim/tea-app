@@ -9,6 +9,10 @@
     margin-right: 10px;
     min-width: 200px;
     width: 10%;
+    cursor: pointer;
+    &:hover {
+      background: lightgrey;
+    }
     md-card-header {
       .avatar img {
         height: 40px;

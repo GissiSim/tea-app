@@ -1,21 +1,4 @@
-<md-toolbar class="tea-header" color="primary">
-  <md-icon class="logo">local_cafe</md-icon> Brightwire Tea App
-  <div class="spacer"></div>
-  <button md-mini-fab (click)="login()" title="Login using Google" *ngIf="!(userContext | async)?.uid"><md-icon>account_circle</md-icon></button>
-  <div *ngIf="(userContext | async)?.uid">
-    <app-user [user]="user"></app-user>
-  </div>
-  <button md-mini-fab (click)="logout()" title="Logout" *ngIf="(userContext | async)?.uid"><md-icon>exit_to_app</md-icon></button>
-
-</md-toolbar>
+<app-header></app-header>
 <md-card>
-  <div class="welcome-text">Welcome the Angular 4 with Firebase Skeleton. Now with FIREBASE (still needs work)</div>
-  <div class="center-input">
-    <md-input-container *ngIf="(userContext | async)?.uid ">
-      <input mdInput type="text" id="message" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value) "
-        [(ngModel)]="msgVal" />
-    </md-input-container>
-  </div>
-  <app-firebase-items [items]="items">
-  </app-firebase-items>
+  <router-outlet></router-outlet>
 </md-card>
