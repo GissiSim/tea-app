@@ -1,18 +1,39 @@
 import { Component } from '@angular/core'
-
+import * as firebase from 'firebase/app'
+import { AuthService, FavicoService } from './shared'
 import * as Rx from 'rxjs'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  event
+  title = 'Brightwire Tea App '
+  links = {
+    items: ['/events'],
+    types: ['/types'],
+    home: ['/home']
+  }
 
-  constructor() {
-    const $body = document.body
-    const watchMouse = Rx.Observable.fromEvent($body, 'mousemove')
-    watchMouse.subscribe(event => (this.event = event))
+  user: firebase.User
+  userContext = this.authService.userContext
+  favicon: any
+  noteNum: number = 0
+  constructor(public authService: AuthService, public favicoService: FavicoService) {
+    this.userContext.subscribe(user => (this.user = user))
+  }
+  test() {
+    this.favicoService.addEvent()
+  }
+  login() {
+    this.authService.loginWithGoogle()
+  }
+  logout() {
+    this.authService.logout()
   }
 }
+
+Notification.requestPermission().then(function(result) {
+  console.log(result)
+})

@@ -1,0 +1,20 @@
+<div class="mdl-grid items">
+  <div *ngFor="let userData of data$ | async" class="item-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title mdl-color--primary mdl-color-text--primary-contrast">
+      <h2 class="mdl-card__title-text">{{userData.name}}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <div class="mdl-grid">
+        <div class="mdl-cell--6-col sub-list">
+          <h5>Events</h5>
+          <ul>
+            <li *ngFor="let event of userData.events">
+              <strong>{{event.name}}</strong> – {{event.description}} - <span *ngIf="event.people != undefined">{{event.people}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

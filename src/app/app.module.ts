@@ -1,28 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-import { HttpModule } from '@angular/http'
 import { FormsModule } from '@angular/forms'
-import { RouterModule, Routes } from '@angular/router'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { HttpModule } from '@angular/http'
+import { Ng2RestAppRoutingModule } from './app-routing.module'
 
-// New imports to update based on AngularFire2 version 4
+// Firebase
 import { AngularFireModule } from 'angularfire2'
 import { AngularFireDatabaseModule } from 'angularfire2/database'
 import { AngularFireAuthModule } from 'angularfire2/auth'
 
-// Components
+import { EventsService, TypesService, HomeService, AuthService, FavicoService } from './shared'
+
 import { AppComponent } from './app.component'
-import { FirebaseItemsComponent } from './components/firebase-items/firebase-items.component'
+import { EventsComponent } from './events/events.component'
+import { EventsListComponent } from './events/events-list/events-list.component'
+import { EventDetailComponent } from './events/event-detail/event-detail.component'
 
-// Services
-import { AuthService } from './services/auth.service'
+import { TypesComponent } from './types/types.component'
+import { TypesListComponent } from './types/types-list/types-list.component'
+import { TypeDetailComponent } from './types/type-detail/type-detail.component'
 
-// Material Components
-import { MaterialModule } from '@angular/material'
-import { EventComponent } from './components/pages/event/event.component'
-import { HomeComponent } from './components/pages/home/home.component'
-import { HeaderComponent } from './header/header.component'
-import { UserComponent } from './components/user/user.component'
+import { HomeComponent } from './home/home.component'
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyD723zGmg0_uSXkKCY-GWKcvGuBpFLZASg',
@@ -33,32 +31,27 @@ export const firebaseConfig = {
   messagingSenderId: '537359846929'
 }
 
-export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'event/:id', component: EventComponent }
-]
-
 @NgModule({
   declarations: [
     AppComponent,
-    FirebaseItemsComponent,
-    UserComponent,
-    EventComponent,
-    HomeComponent,
-    HeaderComponent
+    EventsComponent,
+    EventsListComponent,
+    EventDetailComponent,
+    TypesComponent,
+    TypesListComponent,
+    TypeDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     FormsModule,
-    BrowserAnimationsModule,
+    HttpModule,
+    Ng2RestAppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    RouterModule.forRoot(routes),
-    MaterialModule
+    AngularFireAuthModule
   ],
-  providers: [AuthService],
+  providers: [EventsService, TypesService, HomeService, AuthService, FavicoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

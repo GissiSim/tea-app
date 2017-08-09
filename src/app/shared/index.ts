@@ -1,0 +1,7 @@
+export { EventsService } from './events.service'
+export { Event } from './event.model'
+export { TypesService } from './types.service'
+export { Type } from './type.model'
+export { AuthService } from './auth.service'
+export { HomeService, UserData } from './home.service'
+export { FavicoService } from './favico.service'

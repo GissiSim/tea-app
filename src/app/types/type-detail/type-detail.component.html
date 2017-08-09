@@ -1,0 +1,22 @@
+<div class="item-card mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Type Details</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <form novalidate>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label>Type Name</label>
+        <input [(ngModel)]="selectedType.name" name="name" placeholder="Enter a name" class="mdl-textfield__input" type="text">
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <label>Type Description</label>
+        <input [(ngModel)]="selectedType.bio" name="bio" placeholder="Enter a description" class="mdl-textfield__input" type="text">
+      </div>
+    </form>
+  </div>
+  <div class="mdl-card__actions">
+    <button type="submit" (click)="cancelled.emit(selectedType)" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+    <button type="submit" (click)="saved.emit(selectedType)" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
+  </div>
+</div>

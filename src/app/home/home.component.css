@@ -1,0 +1,11 @@
+.item-card {
+  margin-bottom: 10px;
+}
+
+h5 {
+  margin: 0;
+}
+
+.mdl-card__supporting-text {
+  width: auto;
+}

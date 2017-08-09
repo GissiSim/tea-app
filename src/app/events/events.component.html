@@ -1,0 +1,10 @@
+<div class="mdl-grid items">
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-events-list [events]="events$ | async" (selected)="selectEvent($event)" (deleted)="deleteEvent($event)">
+    </app-events-list>
+  </div>
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-event-detail (saved)="saveEvent($event)" (cancelled)="resetEvent()" [event]="selectedEvent">
+    </app-event-detail>
+  </div>
+</div>

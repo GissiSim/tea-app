@@ -1,0 +1,10 @@
+<div class="mdl-grid items">
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-types-list [types]="types$ | async" (selected)="selectType($event)" (deleted)="deleteType($event)">
+    </app-types-list>
+  </div>
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-type-detail (saved)="saveType($event)" (cancelled)="resetType()" [type]="selectedType">
+    </app-type-detail>
+  </div>
+</div>

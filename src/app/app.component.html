@@ -1,5 +1,18 @@
-<app-header></app-header>
-<md-card>
-  <router-outlet></router-outlet>
-</md-card>
-<span *ngIf="event">Observable events example => x: {{event.x}} y:{{event.y}}</span>
+<div class="content mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title" (click)="test()">{{title}}</span>
+      <div class="mdl-layout-spacer"></div>
+      <div *ngIf="!(userContext | async)?.uid" (click)="login()">Login</div>
+      <div *ngIf="(userContext | async)?.uid" (click)="logout()">Logout</div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" [routerLink]="links.home">Home</a>
+        <a class="mdl-navigation__link" [routerLink]="links.items">Events</a>
+        <a class="mdl-navigation__link" [routerLink]="links.types">Types</a>
+      </nav>
+    </div>
+  </header>
+  <main class="mdl-layout__content page-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
