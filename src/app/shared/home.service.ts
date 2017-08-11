@@ -7,7 +7,7 @@ import { Type } from './type.model'
 import { Observable } from 'rxjs/Observable'
 import { FirebaseListObservable } from 'angularfire2/database'
 
-export interface UserData {
+export interface EventData {
   name: string
   events: Event[]
 }
@@ -16,7 +16,7 @@ export interface UserData {
 export class HomeService {
   events$: FirebaseListObservable<Event[]> = this.eventsService.events$
   types$: FirebaseListObservable<Type[]> = this.typesService.types$
-  data$: Observable<UserData[]> = Observable.combineLatest(
+  data$: Observable<EventData[]> = Observable.combineLatest(
     this.types$,
     this.events$,
     (types, events) => {

@@ -1,3 +1,5 @@
+<div *ngIf="currentUser.name">Here: {{currentUser.name}}</div>
+
 <div class="mdl-grid items">
   <div *ngFor="let userData of data$ | async" class="item-card mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title mdl-color--primary mdl-color-text--primary-contrast">
@@ -9,7 +11,7 @@
           <h5>Events</h5>
           <ul>
             <li *ngFor="let event of userData.events">
-              <strong>{{event.name}}</strong> – {{event.description}} - <span *ngIf="event.people != undefined">{{event.people}}</span>
+              <strong>{{event.name}}</strong> – {{event.description}} <span *ngIf="event.people != undefined"> - {{event.people}}</span>
             </li>
           </ul>
         </div>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core'
-import * as firebase from 'firebase/app'
-import { AuthService, FavicoService } from './shared'
+import { AuthService, FavicoService, User } from './shared'
 import * as Rx from 'rxjs'
 
 @Component({
@@ -16,13 +15,10 @@ export class AppComponent {
     home: ['/home']
   }
 
-  user: firebase.User
   userContext = this.authService.userContext
   favicon: any
   noteNum: number = 0
-  constructor(public authService: AuthService, public favicoService: FavicoService) {
-    this.userContext.subscribe(user => (this.user = user))
-  }
+  constructor(public authService: AuthService, public favicoService: FavicoService) {}
   test() {
     this.favicoService.addEvent()
   }
@@ -33,7 +29,3 @@ export class AppComponent {
     this.authService.logout()
   }
 }
-
-Notification.requestPermission().then(function(result) {
-  console.log(result)
-})

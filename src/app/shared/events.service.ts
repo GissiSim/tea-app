@@ -18,14 +18,14 @@ export class EventsService {
       icon: 'icon'
     }
     var n = new Notification('New event created', options)
-    return this.af.list('/events').push(event)
+    return this.events$.push(event)
   }
 
   updateEvent(event: Event) {
-    return this.af.list('/events').update(event.$key, event)
+    return this.events$.update(event.$key, event)
   }
 
   deleteEvent(event: Event) {
-    return this.af.list('/items').remove(event.$key)
+    return this.events$.remove(event.$key)
   }
 }

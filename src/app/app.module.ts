@@ -51,7 +51,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [EventsService, TypesService, HomeService, AuthService, FavicoService],
+  providers: [AuthService, EventsService, TypesService, HomeService, FavicoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

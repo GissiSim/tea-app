@@ -20,4 +20,7 @@ export class TypeDetailComponent {
     }
     this.selectedType = value
   }
+  ngOnInit() {
+    this.selectedType = { name: '', bio: '' }
+  }
 }
